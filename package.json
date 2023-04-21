@@ -1,0 +1,32 @@
+{
+  "name": "@sugarbeet/dual-package",
+  "version": "0.0.0",
+  "description": "",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "type": "module",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "prestart:cjs": "npm run build:cjs",
+    "prestart:esm": "npm run build:esm",
+    "start:cjs": "node dist/cjs/index.js",
+    "start:esm": "node dist/esm/index.js",
+    "start": "npm run start:cjs && npm run start:esm"
+  },
+  "author": "sugarbeet",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  },
+  "files": [
+    "dist",
+    "package.json"
+  ]
+}
